@@ -1,0 +1,31 @@
+<!Doctype html>
+<html>
+<head>
+	<title> Django Google Play Search </title>
+	<link rel="icon" href="https://www.gstatic.com/android/market_images/web/favicon_v2.ico" type="image/gif" sizes="16x16">
+	<meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style type="text/css">
+    	.container{
+			text-align: center;
+			margin: 0 auto;
+			width: 500px;
+			/*padding-top: 20%;*/
+		}
+    </style>
+</head>
+<body>
+	<div class="container">
+		<p><b>Search Google Play Store </b></p>
+		<form action="{% url 'main:search' %}" method="POST" class="form-horizontal">
+		{% csrf_token %}
+			<div class="form-group">
+			    <input type="text" id="input" class="form-control" name="iurl" placeholder="Enter Your Query" autocomplete="off" required><br>
+				<input type="submit" value="SUBMIT" class="btn btn-primary btn-lg">
+		    </div>
+		</form>
+		<p style="padding-top: 125%">Made with <span style="color: #e74c3c;">&hearts;</span> by Subham Bhattacharjee</a></p>
+	</div>
+</body>
+</html>
