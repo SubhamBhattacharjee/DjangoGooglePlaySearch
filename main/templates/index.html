@@ -21,7 +21,7 @@
 		<form action="{% url 'main:search' %}" method="POST" class="form-horizontal">
 		{% csrf_token %}
 			<div class="form-group">
-			    <input type="text" id="input" class="form-control" name="iurl" placeholder="Enter Your Query" autocomplete="off" required><br>
+			    <input type="text" id="input" class="form-control" name="qry" placeholder="Enter Your Query" autocomplete="on" required><br>
 				<input type="submit" value="SUBMIT" class="btn btn-primary btn-lg">
 		    </div>
 		</form>
