@@ -1,0 +1,13 @@
+{% if result_list %}
+<h3>Here goes all the results</h3>
+<ul>
+	{% for list in result_list %}
+		<li>{{ list.app_id }}</li>
+		<li>{{ list.app_name }}</li>
+		<li><img src="{{ list.app_icon }}"></li>
+		<li>{{ list.dev_name }}</li>
+	{% endfor %}
+</ul>
+{% else %}
+	<h2>Nope! nothing found!</h2>
+{% endif %}
