@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render
 from bs4 import BeautifulSoup
@@ -47,4 +47,14 @@ def search(request):
 				'result_list': result_list
 			})
 
-		return HttpResponse("<pre>lool</pre>")
+	
+	return HttpResponseRedirect("/")
+
+def details(request, result_id):
+	if Result.objects.filter(pk = result_id).exists():
+		result_list = Result.objects.filter(pk = result_id).get()
+		return render(request, 'details.html', {
+			'result_list': result_list
+		})
+	else:
+		return render(request, 'details.html', {'error_message': 'Nothing Found!'})

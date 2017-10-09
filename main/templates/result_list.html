@@ -1,13 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
 {% if result_list %}
-<h3>Here goes all the results</h3>
-<ul>
-	{% for list in result_list %}
-		<li>{{ list.app_id }}</li>
-		<li>{{ list.app_name }}</li>
-		<li><img src="{{ list.app_icon }}"></li>
-		<li>{{ list.dev_name }}</li>
-	{% endfor %}
-</ul>
+<h3>Here goes all the results:</h3><a style="float: right;" href="{% url 'main:index' %}"><button class="btn btn-primary">Go Back</button></a>
+<table class="table table-striped">
+    <thead>
+      <tr>
+      	<th>Icon</th>
+        <th>App ID</th>
+        <th>App Name</th>
+        <th>Dev Name</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for list in result_list %}
+      <tr>
+        <td><img src="{{ list.app_icon }}"></td>
+        <td>{{ list.app_id }}</td>
+        <td>{{ list.app_name }}</td>
+        <td>{{ list.dev_name }}</td>
+        <td><a href="{% url 'main:details' list.id %}">More Details</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% else %}
 	<h2>Nope! nothing found!</h2>
 {% endif %}
+{% endblock %}
