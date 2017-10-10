@@ -8,14 +8,14 @@ class SearchString(models.Model):
 	amount_of_time_searched = models.IntegerField(default='0')
 
 	def __str__(self):
-		return self.searchstring
+		return "%s - %s" % (self.searchstring, self.amount_of_time_searched)
 
 class Result(models.Model):
-	searched_by = models.CharField(max_length=250)
 	app_id = models.CharField(max_length=250)
 	app_name = models.CharField(max_length=250)
 	dev_name = models.CharField(max_length=250)
 	app_icon = models.CharField(max_length=250)
+	searched_by = models.ForeignKey(SearchString)
 
 	def __str__(self):
-		return self.searched_by + ' - ' + self.app_id + ' - ' + self.app_name + ' - ' + self.dev_name + ' - ' + self.app_icon
+		return "%s - %s" % (self.app_name, self.app_id)
