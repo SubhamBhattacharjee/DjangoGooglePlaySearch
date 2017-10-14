@@ -5,6 +5,8 @@ A search engine built on Django which can Search, Cache and Display results from
 Python 3.5 or higher
 
 ## Features
+* Provides list of top 10 results fetched from the Play Store
+
 * Searching/ Parsing results from Google Play Store
 
 * Caching of the search results everytime.
@@ -38,5 +40,3 @@ python manage.py migrate
 python manage.py runserver
 ```
 Server will be live at http://127.0.0.1:8000
-
-```
